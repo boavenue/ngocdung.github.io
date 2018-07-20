@@ -1,0 +1,566 @@
+.nslider {
+    &__wrap {
+        overflow: hidden;
+    }
+    opacity: 0;
+    visibility: hidden;
+    @include prefix(transition, all .3s ease-in-out);
+    &.slick-initialized {
+        opacity: 1;
+        visibility: visible;
+        position: relative;
+        top: -1px;
+    }
+    .slick-list {
+        overflow: visible;
+    }
+    .item {
+        position: relative;
+        overflow: hidden;
+        @include aspect-ratio(1284, 747);
+        @media (max-width: 667px) {
+            &:before {
+                padding-top: 87%;
+            }
+        }
+        >.nratio--img {
+            object-position: top center;
+        }
+        &.slick-slide {
+            outline: 0;
+        }
+    }
+    &__info {
+        position: absolute;
+        z-index: 2;
+        top: 25%;
+        left: 35%;
+        max-width: 450px;
+        width: 100%;
+        @media (min-width: 1440px) {
+            max-width: 650px
+        }
+        @media (max-width: 1024px) {
+            top: 50%;
+            left: 50%;
+            @include pd-lr(30, 30);
+            @include prefix(transform, translate(-50%, -50%));
+        }
+        @media (max-width: 736px) {
+            max-width: 100%;
+        }
+        .nheading-h2 {
+            font-size: $font-35;
+            @media (max-width: 1024px) {
+                text-align: center;
+            }
+            @media (max-width: 667px) {
+                font-size: $font-26;
+            }
+        }
+        .nheading-content {
+            @media (max-width: 667px) {
+                text-align-last: center;
+            }
+        }
+        .nbutton {
+            margin-top: 20px;
+            &.nstyle--01 {
+                background-color: $color-yellow;
+                color: #fff;
+                border-color: transparent;
+                &:hover {
+                    background-color: transparent;
+                    color: $color-yellow;
+                    border-color: $color-yellow;
+                }
+            }
+        }
+    }
+    &__btn {
+        @media (max-width: 1024px) {
+            text-align: center;
+        }
+    }
+    .slick-dots {
+        bottom: 40px;
+        z-index: 2;
+        @media (max-width: 768px) {
+            display: none !important;
+        }
+        li {
+            margin: 0 8px;
+            &.slick-active {
+                button {
+                    &:before {
+                        opacity: 1;
+                        color: $color-yellow;
+                        border-color: transparent;
+                    }
+                }
+            }
+            button {
+                &:hover {
+                    &:before {
+                        color: $color-yellow;
+                        border-color: transparent;
+                    }
+                }
+                &:before {
+                    font-size: 60px;
+                    line-height: 22px;
+                    width: 22px;
+                    height: 22px;
+                    color: $color-blue;
+                    opacity: 1;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    border: 1px solid #fff;
+                    @include prefix(transition, all .3s ease-in-out);
+                }
+            }
+        }
+    }
+}
+
+//  0.1 Section Về chúng tôi
+.nabout-us {
+    @include pd-tb(30, 75);
+    &__wrap {
+        @include mg-lr(-15, -15);
+    }
+    @media (max-width: 667px) {
+        @include pd-tb(0, 50);
+    }
+    .nitem {
+        @include pd-lr(15, 15);
+        &.left {
+            width: 40%;
+        }
+        &.right {
+            width: 60%;
+        }
+        @media (max-width: 667px) {
+            &.left,
+            &.right {
+                width: 100%;
+            }
+            .left-about {
+                max-width: 50%;
+            }
+            &.right {
+                .nheading-h2 {
+                    text-align: center;
+                    &.has--borimg {
+                        &:after {
+                            display: none;
+                        }
+                    }
+                }
+                .nheading-content {
+                    text-align: center;
+                }
+                .nbutton {
+                    &.mg--40 {
+                        margin-top: 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//  0.2 Section Sắc đẹp là sức mạnh
+.nstrong-beauty {
+    &.bg-image-cp {
+        position: relative;
+        overflow: hidden;
+        &:before {
+            background: url(../images/strong-beauty.jpg) 50% 50% no-repeat;
+            background-size: cover;
+            width: 100%;
+            display: block;
+        }
+    }
+    .bg-image-content-cp {
+        bottom: 35px;
+    }
+}
+
+// 0.3 End of Section Dịch vụ nổi bật
+.nservices {
+    @include pd-tb(65, 55);
+    margin-bottom: -10px;
+    @media (max-width: 667px) {
+        @include pd-tb(35, 45);
+    }
+    &__list {
+        margin-top: 100px;
+        @include mg-lr(-5, -5);
+        @media (max-width: 1024px) {
+            margin-top: 60px;
+        }
+        @media (max-width: 667px) {
+            margin-top: 30px;
+            @include mg-lr(-2, -2);
+        }
+        &.list-clm {
+            &.clm-03 {
+                .nitem {
+                    @include pd-lr(5, 5);
+                    @media (max-width: 1024px) {
+                        width: 50%;
+                    }
+                    @media (max-width: 667px) {
+                        width: 100%;
+                        @include pd-lr(2, 2);
+                    }
+                }
+            }
+        }
+    }
+    .nitem {
+        position: relative;
+        overflow: hidden;
+        margin-bottom: 10px;
+        &:hover {
+            .nservices {
+                &__list-img {
+                    @include prefix(transform, scale(0.85));
+                }
+                &__list-content {
+                    &.real {
+                        opacity: 0;
+                        visibility: hidden;
+                        @include prefix(transform, translateY(100%));
+                    }
+                    &.fake {
+                        opacity: 1;
+                        visibility: visible;
+                        @include prefix(transform, translateY(0));
+                    }
+                }
+            }
+        }
+    }
+    &__list-img {
+        position: relative;
+        overflow: hidden;
+        @include aspect-ratio(100, 100);
+        @include prefix(transition, all .3s ease-in-out);
+    }
+    &__list-content {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background-color: rgba($color-yellow, .7);
+        @include prefix(transition, all .4s ease-out);
+        padding: 0;
+        &__title {
+            font-size: $font-21;
+            text-align: center;
+            @include pd-tb(14, 16);
+        }
+        &.fake {
+            opacity: 0;
+            visibility: hidden;
+            @include prefix(transition, all .4s ease-in-out);
+            @include prefix(transform, translateY(100%));
+            .inner {
+                position: relative;
+                min-height: 156px;
+                padding: 15px 80px 42px 50px;
+            }
+            .nservices {
+                &__list-content {
+                    &__title {
+                        font-size: $font-21;
+                        text-align: left;
+                        padding: 0;
+                    }
+                    &__info {
+                        margin-top: 5px;
+                        text-align: left;
+                        font-size: $font-17;
+                        @include prefix(transition, all .4s ease-in-out);
+                    }
+                    &__btn {
+                        position: absolute;
+                        right: -52px;
+                        bottom: 52px;
+                        transform: rotate(-90deg);
+                        @media (max-width: 667px) {
+                            right: -56px;
+                            bottom: 57px;
+                        }
+                        &.nsize--sm {
+                            min-width: 155px;
+                            padding: 15px 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// 0.4 Section Vì phụ nữ có quyền đẹp
+.nwoman-beauty {
+    &.bg-image-cp {
+        position: relative;
+        overflow: hidden;
+        @include aspect-ratio(1284, 364);
+        @media (max-width: 667px) {
+            &:before {
+                padding-top: 45%;
+            }
+        }
+        &:before {
+            background: url(../images/woman-beauty.jpg) 50% 50% no-repeat;
+            background-size: cover;
+            width: 100%;
+            display: block;
+        }
+    }
+    .bg-image-content-cp {
+        top: 35px;
+    }
+}
+
+// 0.5 Section Chi nhánh gần bạn
+.narea {
+    @include pd-tb(65, 65);
+    @media (max-width: 667px) {
+        @include pd-tb(50, 50);
+    }
+    &__list-wrap {
+        margin-top: 45px;
+        @include mg-lr(-1, -1);
+        @media (max-width: 667px) {
+            margin-top: 25px;
+            &.list-clm {
+                &.clm-02 {
+                    .nitem {
+                        width: 100%;
+                        &.left {
+                            +.right {
+                                margin-top: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .nitem {
+            @include pd-lr(1, 1);
+            &:nth-child(odd) {
+                .narea {
+                    &__list {
+                        .nitem {
+                            &:first-child {
+                                .narea {
+                                    &__list-title {
+                                        background-color: $color-blue;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            &:nth-child(even) {
+                .narea {
+                    &__list {
+                        .nitem {
+                            &:first-child {
+                                .narea {
+                                    &__list-title {
+                                        background-color: $color-yellow;
+                                        color: #fff;
+                                    }
+                                }
+                            }
+                            .narea {
+                                &__list-info {
+                                    .nbutton {
+                                        &.nstyle--02 {
+                                            background-color: $color-yellow;
+                                            &:hover {
+                                                background-color: rgb(181, 143, 31);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__list {
+        &.list-clm {
+            &.clm-02 {
+                @include mg-lr(-2, -2);
+                @media (max-width: 667px) {
+                    @include mg-lr(-10, -10);
+                }
+                .nitem {
+                    @include pd-lr(2, 2);
+                    @media (max-width: 667px) {
+                        @include pd-lr(10, 10);
+                    }
+                }
+            }
+        }
+        .nitem {
+            &:hover {
+                .narea {
+                    &__list-info {
+                        opacity: 1;
+                        visibility: visible;
+                        @include prefix(transform, translateY(0));
+                    }
+                }
+            }
+            &:first-child {
+                width: 100%;
+                display: block;
+                .narea {
+                    &__list-img {
+                        @include aspect-ratio(642, 289);
+                    }
+                }
+            }
+            .narea {
+                &__list-img {
+                    @include aspect-ratio(100, 100);
+                }
+            }
+        }
+    }
+    &__list-img {
+        position: relative;
+        overflow: hidden;
+    }
+    &__list-title {
+        font-size: $font-21;
+        color: #fff;
+        width: 100%;
+        text-align: center;
+        @include pd-tb(11, 15);
+        background-color: #fff;
+        text-transform: uppercase;
+    }
+    &__list-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 25px 10px;
+        background-color: rgba(#fff, .8);
+        opacity: 0;
+        visibility: hidden;
+        @include prefix(transform, translateY(-100%));
+        @include prefix(transition, all 300ms ease-in-out);
+        >p {
+            font-size: $font-17;
+        }
+        p+.nbutton {
+            margin-top: 20px;
+        }
+    }
+}
+
+// 0.6 Section Bài viết nổi bật
+.nblog {
+    padding-bottom: 35px;
+    &__list {
+        margin-top: 40px;
+        @include mg-lr(-20, -20);
+        @media (max-width: 768px) {
+            @include mg-lr(-5, -5);
+        }
+        @media (max-width: 667px) {
+            margin-top: 25px;
+            &.list-clm.clm-03 {
+                .nitem {
+                    width: 100%;
+                }
+            }
+        }
+        .nitem {
+            @include pd-lr(20, 20);
+            @media (max-width: 768px) {
+                @include pd-lr(5, 5);
+            }
+            @media (max-width: 667px) {
+                +.nitem {
+                    margin-top: 20px;
+                }
+            }
+            &__link {
+                position: relative;
+                overflow: hidden;
+                &:hover {
+                    .nblog {
+                        &__list-img {
+                            .nratio--img {
+                                @include prefix(transform, scale(1.1) translate(-50%, -50%));
+                            }
+                        }
+                    }
+                }
+                >a {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    z-index: 2;
+                }
+            }
+        }
+    }
+    &__list-img {
+        position: relative;
+        overflow: hidden;
+        @include aspect-ratio(315, 212);
+        .nratio--img {
+            @include prefix(transition, all .2s ease-in-out);
+        }
+    }
+    &__list-info {
+        text-align: center;
+        font-size: $font-15;
+        margin-top: 15px;
+        @media (max-width: 667px) {
+            margin-top: 10px;
+        }
+    }
+}
+
+// 0.7  Đăng ký tư vấn
+.resigter-link {
+    position: absolute;
+    top: 50%;
+    right: -1px; // opacity: 0;
+    // visibility: hidden;
+    @include prefix(transform, translate(0, -50%));
+    @include prefix(transition, all .2s ease);
+    @media (max-width: 768px) {
+        width: 25px;
+    }
+    &:hover {
+        opacity: .8;
+    }
+    &.open {
+        opacity: 1;
+        visibility: visible;
+        @include prefix(transform, translate(0, -50%));
+    }
+    a {
+        display: block;
+    }
+}

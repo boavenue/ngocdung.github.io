@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "`npm install -g gulp` #### 3. Install gulp in your project devDependencies `npm install --save-dev gulp` #### 4. Install the required gulp plugins `npm install --save-dev gulp-util gulp-sass gulp-minify-css gulp-rename gulp-autoprefixer browser-sync` #### 5. Run gulp tasks in your project's root to generate css or watch the files for modication (it automatically generates css by modification) * `gulp sass` or just `gulp` * `gulp watch`",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "node-sass": "^4.9.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.24.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-rename": "^1.3.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-util": "^3.0.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
